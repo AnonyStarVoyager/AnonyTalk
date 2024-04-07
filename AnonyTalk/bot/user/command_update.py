@@ -16,5 +16,7 @@ async def update_message(message: telebot.types.Message):
 🟢 و خیلی تغییرات ریز دیگه که می‌تونید تو صفحه گیتهاب پروژه چشم‌تون رو روشون خوش کنید!
 </blockquote>
     """
+    github = telebot.types.InlineKeyboardMarkup()
+    github.add(telebot.types.InlineKeyboardButton(text="🐙🐱 کد‌های منو اینجا ببین!",url="https://github.com/AnonyStarVoyager/AnonyTalk"))
     await bot.send_sticker(chat_id,"CAACAgIAAxkBAAEL2zpmEN7Li-htcta5NGzcWq5Ln8EVYAACAgEAAladvQpO4myBy0Dk_zQE")
-    await bot.send_message(message.chat.id,text,reply_markup=Keyboards.keyboard_user())
+    await bot.send_message(message.chat.id,text,reply_markup=github)
