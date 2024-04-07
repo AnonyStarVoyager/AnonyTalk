@@ -51,8 +51,7 @@ async def set_gender_query(call : telebot.types.CallbackQuery):
             user_gender = await connectdatabase.user_gender(chat_id)
             f_gender = str(call.data.split("_")[1])
             while True:
-                async with lock:
-                    status_find = ConversationDirector.connection(ChatConnectQueue,[int(time.time()),chat_id,user_gender,f_gender])
+                status_find = ConversationDirector.connection(ChatConnectQueue,[int(time.time()),chat_id,user_gender,f_gender])
                 if status_find['status'] == "create":
                     await bot.send_message(chat_id,"🔎 صبر کن، داریم برات یه هم‌صحبت جذاب پیدا می‌کنیم...\n\n"
                                         "🌟 اگه تا 20 دقیقه دیگه همراهت رو نیافتیم، ناامید نشو! یه شانس دیگه به سرنوشت بده و دوباره امتحان کن",
